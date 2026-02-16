@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>swiftCarty</title>
+    <!-- font awosome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- tailwindcss + daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- style.css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- navber -->
+      <section>
+        <div class="bg-base-100 shadow-sm">
+          <div class="navbar container mx-auto px-5">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M4 6h16M4 12h8m-8 6h16"
+                    />
+                  </svg>
+                </div>
+                <ul
+                  tabindex="-1"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold"
+                >
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="products/products.html">Products</a></li>
+                  <li><a>About</a></li>
+                  <li><a>Contact</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-ghost text-xl text-indigo-700 font-bold">SwiftCart</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal px-1 font-semibold">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products/products.html">Products</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+              </ul>
+            </div>
+            <div class="navbar-end">
+              <a class=""><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <section class="banner-img">
+      <div class="container mx-auto space-y-5 text-white">
+        <h1 class="text-5xl font-bold">Best Collection For You</h1>
+        <p>
+          Discover the latest trends in fashion, ekectrics, and more.Shope with confidence and style
+          at swiftCart
+        </p>
+        <button class="btn btn-primary">Shop Now</button>
+      </div>
+    </section>
+    <section class="pt-10 bg-slate-500 p-20">
+      <div class="space-y-4 container mx-auto">
+        <h1 class="text-center text-5xl font-bold">Why Choose Us</h1>
+        <p class="text-center mb-10 text-gray-300">
+          we provide the best shopping experience top-notch services.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="card bg-base-100 shadow-sm relative">
+            <p
+              class="bg-slate-500 p-2 border-5 border-white rounded shadow-xl absolute -top-5 left-5"
+            >
+              <i class="fa-solid fa-car-side text-indigo-600"></i>
+            </p>
+            <div class="card-body space-y-2">
+              <h2 class="card-title pt-5">Fast Delivery</h2>
+              <p>Get your orders delivered to your doorstop quickly and efficiently</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm relative">
+            <p
+              class="bg-slate-500 p-2 border-5 border-white rounded shadow-xl absolute -top-5 left-5"
+            >
+              <i class="fa-solid fa-headphones text-indigo-600"></i>
+            </p>
+            <div class="card-body space-y-2">
+              <h2 class="card-title pt-5">24/7 support</h2>
+              <p>Our support is available around the clock to assist you</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm relative">
+            <p
+              class="bg-slate-500 p-2 border-5 border-white rounded shadow-xl absolute -top-5 left-5"
+            >
+              <i class="fa-solid fa-shield text-indigo-600"></i>
+            </p>
+            <div class="card-body space-y-2">
+              <h2 class="card-title pt-5">Secure Pyment</h2>
+              <p>Experence Safe and secure transactions with our encrypted payment system</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm relative">
+            <p
+              class="bg-slate-500 p-2 border-5 border-white rounded shadow-xl absolute -top-5 left-5"
+            >
+              <i class="fa-solid fa-arrows-rotate text-indigo-600"></i>
+            </p>
+            <div class="card-body space-y-2">
+              <h2 class="card-title pt-5">Easy Returns</h2>
+              <p>Not satisfied? Retuen Your products easily within 30 days</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <footer class="footer sm:footer-horizontal bg-sky-950 text-base-content p-10 text-white">
+        <aside>
+          <h1 class="text-2xl font-bold text-indigo-200">SwiftCart</h1>
+          <p>
+            ACME Industries Ltd.
+            <br />
+            Providing reliable tech since 1992
+          </p>
+        </aside>
+        <nav>
+          <h6 class="footer-title">Services</h6>
+          <a class="link link-hover">Branding</a>
+          <a class="link link-hover">Design</a>
+          <a class="link link-hover">Marketing</a>
+          <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Company</h6>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+          <a class="link link-hover">Jobs</a>
+          <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+          <form>
+            <h6 class="footer-title">Newsletter</h6>
+            <fieldset class="w-80">
+              <label>Enter your email address</label>
+              <div class="join">
+                <input
+                  type="text"
+                  placeholder="username@site.com"
+                  class="input input-bordered join-item"
+                />
+                <button class="btn btn-primary join-item">Subscribe</button>
+              </div>
+            </fieldset>
+          </form>
+        </nav>
+      </footer>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>

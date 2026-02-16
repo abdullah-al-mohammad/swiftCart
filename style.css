@@ -1,0 +1,13 @@
+.menu a.active {
+  color: blue;
+}
+.banner-img {
+  background:
+    linear-gradient(to right, rgba(4, 4, 28, 0.763), rgba(0, 0, 255, 0.095)),
+    url('./assets/banner-image.png') no-repeat center/cover;
+  padding: 200px;
+}
+.active {
+  color: white;
+  background-color: blue;
+}
