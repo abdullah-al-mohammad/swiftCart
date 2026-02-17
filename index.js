@@ -39,8 +39,8 @@ const displayTopProduct = products => {
               <span class="bg-blue-400 rounded-full p-1 px-3 text-white">${p.category}</span>
               <span><i class="fa-solid fa-star text-yellow-500"></i> ${p.rating.rate} (${p.rating.count})</span>
             </div>
-            <h2 class="card-title h-10">${p.title}</h2>
-            <p>$${p.price}</p>
+            <h2 class="card-title h-20">${p.title}</h2>
+            <p class="font-bold">$${p.price}</p>
             <div class="card-actions justify-between">
               <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
               <button class="btn btn-primary">
