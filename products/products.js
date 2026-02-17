@@ -155,9 +155,7 @@ const addToCart = async productId => {
 function renderCart() {
   const cartDiv = document.getElementById('cart-items');
   cartDiv.innerHTML = '';
-
   let total = 0;
-
   cart.forEach(item => {
     total += item.price * item.quantity;
 
