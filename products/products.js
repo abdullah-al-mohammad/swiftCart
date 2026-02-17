@@ -119,7 +119,7 @@ const displayProducts = products => {
       <p class="font-bold">$${p.price}</p>
       <div class="card-actions justify-between">
         <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" onClick="addToCart(${p.id})">
           <i class="fa-solid fa-cart-shopping"></i> Add
         </button>
       </div>
@@ -130,3 +130,23 @@ const displayProducts = products => {
   });
 };
 loadProducts();
+
+let cart = [];
+
+if (localStorage.getItem('cart')) {
+  cart = JSON.parse(localStorage.getItem('cart'));
+  updateCartCount();
+}
+
+function addToCart(productId) {
+  cart.push(productId);
+
+  updateCartCount();
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCartCount() {
+  const cartLength = (document.getElementById('cart-count').innerText = cart.length);
+  console.log(cartLength);
+}
