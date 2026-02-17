@@ -46,18 +46,18 @@
                   tabindex="-1"
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold"
                 >
-                  <li><a>Home</a></li>
-                  <li><a>Products</a></li>
-                  <li><a>About</a></li>
-                  <li><a>Contact</a></li>
+                  <li><a class="link">Home</a></li>
+                  <li><a class="link">Products</a></li>
+                  <li><a class="link">About</a></li>
+                  <li><a class="link">Contact</a></li>
                 </ul>
               </div>
               <a class="btn btn-ghost text-xl text-indigo-700 font-bold">SwiftCart</a>
             </div>
             <div class="navbar-center hidden lg:flex">
               <ul class="menu menu-horizontal px-1 font-semibold">
-                <li><a>Home</a></li>
-                <li><a href="/products">Products</a></li>
+                <li><a href="/index.html" class="link">Home</a></li>
+                <li><a href="/products" class="link">Products</a></li>
                 <li><a>About</a></li>
                 <li><a>Contact</a></li>
               </ul>
@@ -69,8 +69,8 @@
         </div>
       </section>
     </header>
-    <section class="container mx-auto">
-      <h1 class="text-5xl font-bold text-center mb-10">Our Products</h1>
+    <section class="container mx-auto p-10">
+      <h1 class="text-4xl font-bold text-center mb-10">Our Products</h1>
       <div id="product-category"></div>
       <div id="products"></div>
     </section>
@@ -88,8 +88,10 @@
         </div>
       </dialog>
     </section>
-    <section class="pt-10">
-      <footer class="footer sm:footer-horizontal bg-sky-950 text-base-content p-10 text-white">
+    <section class="bg-sky-950">
+      <footer
+        class="footer sm:footer-horizontal text-base-content p-10 text-white container mx-auto"
+      >
         <aside>
           <h1 class="text-2xl font-bold text-indigo-200">SwiftCart</h1>
           <p>
@@ -99,28 +101,28 @@
           </p>
         </aside>
         <nav>
-          <h6 class="footer-title">Services</h6>
-          <a class="link link-hover">Branding</a>
-          <a class="link link-hover">Design</a>
-          <a class="link link-hover">Marketing</a>
-          <a class="link link-hover">Advertisement</a>
+          <h6 class="footer-title">Quick Links</h6>
+          <a href="/index.html" class="link link-hover">Home</a>
+          <a href="/products/products.html" class="link link-hover">Products</a>
+          <a class="link link-hover">Abot</a>
+          <a class="link link-hover">Contact</a>
         </nav>
         <nav>
-          <h6 class="footer-title">Company</h6>
-          <a class="link link-hover">About us</a>
-          <a class="link link-hover">Contact</a>
-          <a class="link link-hover">Jobs</a>
-          <a class="link link-hover">Press kit</a>
+          <h6 class="footer-title">SUPPORT</h6>
+          <a class="link link-hover">FAQ</a>
+          <a class="link link-hover">Shipping</a>
+          <a class="link link-hover">Retuens</a>
+          <a class="link link-hover">Privacy Policy</a>
         </nav>
         <nav>
           <form>
-            <h6 class="footer-title">Newsletter</h6>
+            <h6 class="footer-title">SUBSCRIBE TO OUR NEWSLETTER</h6>
+            <p>The latest news, articles, and resources, sent to your inbox weekly</p>
             <fieldset class="w-80">
-              <label>Enter your email address</label>
               <div class="join">
                 <input
                   type="text"
-                  placeholder="username@site.com"
+                  placeholder="Enter Your Email"
                   class="input input-bordered join-item"
                 />
                 <button class="btn btn-primary join-item">Subscribe</button>
@@ -130,7 +132,7 @@
         </nav>
       </footer>
     </section>
-    <script src="./script.js"></script>
+    <script src="./products.js"></script>
     <script src="../index.js"></script>
   </body>
 </html>
