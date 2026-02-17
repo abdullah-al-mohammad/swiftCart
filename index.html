@@ -46,7 +46,7 @@
                   tabindex="-1"
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold"
                 >
-                  <li><a href="/index.html" class="link no-underline">Home</a></li>
+                  <li><a href="/index.html" class="link activ">Home</a></li>
                   <li><a href="products/products.html" class="link">Products</a></li>
                   <li><a class="link">About</a></li>
                   <li><a class="link">Contact</a></li>
@@ -58,24 +58,24 @@
             </div>
             <div class="navbar-center hidden lg:flex">
               <ul class="menu menu-horizontal px-1 font-semibold">
-                <li><a href="index.html" class="link">Home</a></li>
+                <li><a href="index.html" class="link activ">Home</a></li>
                 <li><a href="products/products.html" class="link">Products</a></li>
                 <li><a class="link">About</a></li>
                 <li><a class="link">Contact</a></li>
               </ul>
             </div>
             <div class="navbar-end">
-              <!-- Open the modal using ID.showModal() method -->
-              <button class="btn" onclick="my_modal_5.showModal()">
-                <i class="fa-solid fa-cart-shopping"></i>
+              <button class="" onclick="cartModal.showModal()">
+                <p>
+                  <i class="fa-solid fa-cart-shopping"></i
+                  ><span id="cart-count" class="text-red-600 font-semibold text-2xl">0</span>
+                </p>
               </button>
-              <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+              <dialog id="cartModal" class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
-                  <h3 class="text-lg font-bold">Hello!</h3>
-                  <p class="py-4">Press ESC key or click the button below to close</p>
+                  <div id="cart-items"></div>
                   <div class="modal-action">
                     <form method="dialog">
-                      <!-- if there is a button in form, it will close the modal -->
                       <button class="btn">Close</button>
                     </form>
                   </div>
@@ -260,5 +260,6 @@
       </footer>
     </section>
     <script src="/index.js"></script>
+    <script src="/products/products.js"></script>
   </body>
 </html>

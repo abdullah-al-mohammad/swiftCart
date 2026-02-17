@@ -119,7 +119,7 @@ const displayProducts = products => {
       <p class="font-bold">$${p.price}</p>
       <div class="card-actions justify-between">
         <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
-        <button class="btn btn-primary" onClick="addToCart(${p.id})">
+        <button onClick="addToCart(${p.id})" class="btn btn-primary">
           <i class="fa-solid fa-cart-shopping"></i> Add
         </button>
       </div>
@@ -131,22 +131,52 @@ const displayProducts = products => {
 };
 loadProducts();
 
+// cart modal
+
 let cart = [];
 
-if (localStorage.getItem('cart')) {
-  cart = JSON.parse(localStorage.getItem('cart'));
+const addToCart = async productId => {
+  const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+  const product = await res.json();
+
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    product.quantity = 1;
+    cart.push(product);
+  }
+
+  renderCart();
   updateCartCount();
-}
+};
 
-function addToCart(productId) {
-  cart.push(productId);
+function renderCart() {
+  const cartDiv = document.getElementById('cart-items');
+  cartDiv.innerHTML = '';
 
-  updateCartCount();
+  let total = 0;
 
-  localStorage.setItem('cart', JSON.stringify(cart));
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+
+    cartDiv.innerHTML += `
+      <div class="border-b py-2">
+        <p class="font-semibold">${item.title}</p>
+        <p>$${item.price} x ${item.quantity}</p>
+      </div>
+    `;
+  });
+
+  cartDiv.innerHTML += `
+    <h3 class="text-lg font-bold mt-4">
+      Total: $<span id="total-price">${total.toFixed(2)}</span>
+    </h3>
+  `;
 }
 
 function updateCartCount() {
-  const cartLength = (document.getElementById('cart-count').innerText = cart.length);
-  console.log(cartLength);
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  document.getElementById('cart-count').innerText = totalItems;
 }
