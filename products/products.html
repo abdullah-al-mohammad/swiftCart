@@ -74,6 +74,20 @@
       <div id="product-category"></div>
       <div id="products"></div>
     </section>
+    <section>
+      <!-- Open the modal using ID.showModal() method -->
+      <dialog id="detail_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="detail-container" class="space-y-5"></div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </section>
     <section class="pt-10">
       <footer class="footer sm:footer-horizontal bg-sky-950 text-base-content p-10 text-white">
         <aside>
