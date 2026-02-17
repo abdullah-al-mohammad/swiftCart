@@ -10,12 +10,46 @@
 //   });
 // });
 // console.log('index.js connect', links);
+
 const loadTopProduct = () => {
   const url = 'https://fakestoreapi.com/products';
   fetch(url)
     .then(res => res.json())
     .then(data => displayTopProduct(data));
 };
+
+const productDetails = id => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => displayDetail(data));
+};
+
+const displayDetail = product => {
+  const detailsBox = document.getElementById('detail-container');
+  detailsBox.innerHTML = `
+  <div>
+    <h2 class="text-xl font-bold">
+      <span class="text-blue-600">Title:</span> ${product.title}
+    </h2>
+  </div>
+  <div>
+    <h2 class="text-lg font-bold">Description</h2>
+    <p>${product.description}</p>
+  </div>
+  <div>
+    <p><span>rating:</span> <span class="text-yellow-500">${product.rating.rate}</span> (${product.rating.count})</p>
+  </div>
+  <div>
+    <p><span>price:</span> $${product.price}</p>
+  </div>
+  <div>
+    <button class="btn btn-primary" type="button">Buy Now</button>
+  </div>
+  `;
+  document.getElementById('detail_modal').showModal();
+};
+
 const displayTopProduct = products => {
   console.log(products);
 
