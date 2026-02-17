@@ -64,10 +64,10 @@ const displayCategories = categories => {
   const categoriesContainer = document.getElementById('product-category');
   categoriesContainer.classList.add(
     'flex',
+    'flex-wrap',
     'justify-center',
     'items-center',
     'gap-2',
-    'w-6/12',
     'mx-auto',
     'mb-10'
   );
