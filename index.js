@@ -51,8 +51,6 @@ const displayDetail = product => {
 };
 
 const displayTopProduct = products => {
-  console.log(products);
-
   const productContainer = document.getElementById('top_rated');
   productContainer.innerHTML = '';
   productContainer.classList.add('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-5');
