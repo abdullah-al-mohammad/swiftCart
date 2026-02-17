@@ -103,28 +103,27 @@ const displayProducts = products => {
   products.forEach(p => {
     const productDiv = document.createElement('div');
     productDiv.innerHTML = `
-<div class="card bg-base-100 shadow-sm">
-    <figure class="bg-slate-400">
-      <img class="h-80"
-        src="${p.image}"
-        alt="${p.category}"
-      />
-    </figure>
-    <div class="card-body">
-      <div class="flex justify-between items-center">
-        <span class="bg-blue-400 rounded-full p-1 px-3 text-white">${p.category}</span>
-        <span><i class="fa-solid fa-star text-yellow-500"></i> ${p.rating.rate} (${p.rating.count})</span>
-      </div>
-      <h2 class="card-title h-20">${p.title}</h2>
-      <p class="font-bold">$${p.price}</p>
-      <div class="card-actions justify-between">
-        <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
-        <button onClick="addToCart(${p.id})" class="btn btn-primary">
-          <i class="fa-solid fa-cart-shopping"></i> Add
-        </button>
-      </div>
-    </div>
-  </div>
+            <div class="card bg-base-100 shadow-sm">
+              <figure class="bg-slate-400">
+                <img class="h-80"
+                  src="${p.image}"
+                  alt="${p.category}"
+                />
+              </figure>
+              <div class="card-body">
+                <div class="flex justify-between items-center">
+                  <span class="bg-blue-400 rounded-full p-1 px-3 text-white">${p.category}</span>
+                  <span><i class="fa-solid fa-star text-yellow-500"></i> ${p.rating.rate} (${p.rating.count})</span>
+                </div>
+                <h2 class="card-title h-20">${p.title}</h2>
+                <p class="font-bold">$${p.price}</p>
+                <div class="card-actions justify-between">
+                  <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
+                  <button onClick="addToCart(${p.id})" class="btn btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i> Add
+                  </button>
+                </div>
+              </div>
     `;
     productsContainer.appendChild(productDiv);
   });
@@ -132,6 +131,11 @@ const displayProducts = products => {
 loadProducts();
 
 // cart modal
+
+function openCart() {
+  renderCart();
+  document.getElementById('cartModal').showModal();
+}
 
 let cart = [];
 
@@ -155,6 +159,16 @@ const addToCart = async productId => {
 function renderCart() {
   const cartDiv = document.getElementById('cart-items');
   cartDiv.innerHTML = '';
+  if (cart.length === 0) {
+    cartDiv.innerHTML = `
+      <div class="text-center py-5">
+        <p class="text-lg font-semibold text-gray-500">
+          🛒 Cart is Empty
+        </p>
+      </div>
+    `;
+    return;
+  }
   let total = 0;
   cart.forEach(item => {
     total += item.price * item.quantity;

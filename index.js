@@ -25,24 +25,24 @@ const productDetails = id => {
 const displayDetail = product => {
   const detailsBox = document.getElementById('detail-container');
   detailsBox.innerHTML = `
-  <div>
-    <h2 class="text-xl font-bold">
-      <span class="text-blue-600">Title:</span> ${product.title}
-    </h2>
-  </div>
-  <div>
-    <h2 class="text-lg font-bold">Description</h2>
-    <p>${product.description}</p>
-  </div>
-  <div>
-    <p><span>rating:</span> <span class="text-yellow-500">${product.rating.rate}</span> (${product.rating.count})</p>
-  </div>
-  <div>
-    <p><span>price:</span> $${product.price}</p>
-  </div>
-  <div>
-    <button class="btn btn-primary" type="button">Buy Now</button>
-  </div>
+          <div>
+            <h2 class="text-xl font-bold">
+              <span class="text-blue-600">Title:</span> ${product.title}
+            </h2>
+          </div>
+          <div>
+            <h2 class="text-lg font-bold">Description</h2>
+            <p>${product.description}</p>
+          </div>
+          <div>
+            <p><span>rating:</span> <span class="text-yellow-500">${product.rating.rate}</span> (${product.rating.count})</p>
+          </div>
+          <div>
+            <p><span>price:</span> $${product.price}</p>
+          </div>
+          <div>
+            <button class="btn btn-primary" type="button">Buy Now</button>
+          </div>
   `;
   document.getElementById('detail_modal').showModal();
 };
@@ -86,6 +86,11 @@ loadTopProduct();
 
 // cart modal
 
+function openCart() {
+  renderCart();
+  document.getElementById('cartModal').showModal();
+}
+
 let cart = [];
 
 const addToCart = async productId => {
@@ -108,7 +113,16 @@ const addToCart = async productId => {
 function renderCart() {
   const cartDiv = document.getElementById('cart-items');
   cartDiv.innerHTML = '';
-
+  if (cart.length === 0) {
+    cartDiv.innerHTML = `
+      <div class="text-center py-5">
+        <p class="text-lg font-semibold text-gray-500">
+          🛒 Cart is Empty
+        </p>
+      </div>
+    `;
+    return;
+  }
   let total = 0;
 
   cart.forEach(item => {
