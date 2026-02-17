@@ -46,7 +46,7 @@
                   tabindex="-1"
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold"
                 >
-                  <li><a href="/index.html" class="link">Home</a></li>
+                  <li><a href="/index.html" class="link no-underline">Home</a></li>
                   <li><a href="products/products.html" class="link">Products</a></li>
                   <li><a class="link">About</a></li>
                   <li><a class="link">Contact</a></li>
@@ -71,7 +71,7 @@
         </div>
       </section>
     </header>
-    <section class="banner-img flex items-center min-h-[600px]">
+    <section class="banner-img flex items-center min-h-[550px]">
       <div class="container mx-auto space-y-5 text-white p-10 lg:px-60">
         <h1 class="text-2xl md:text-4xl font-bold">Best Collection For You</h1>
         <p>
@@ -136,17 +136,32 @@
       </div>
     </section>
     <section class="container mx-auto p-10">
-      <h1 class="text-2xl md:text-4xl mb-10 font-bold">Trending</h1>
+      <h1 class="text-2xl md:text-4xl mb-10 font-bold">Trending Now</h1>
       <div id="top_rated"></div>
     </section>
     <section>
-      <footer class="footer sm:footer-horizontal bg-sky-950 text-base-content p-10 text-white">
+      <!-- Open the modal using ID.showModal() method -->
+      <dialog id="detail_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="detail-container" class="space-y-5"></div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
+    </section>
+    <section class="bg-sky-950">
+      <footer
+        class="footer sm:footer-horizontal text-base-content p-10 text-white container mx-auto"
+      >
         <aside>
           <h1 class="text-2xl font-bold text-indigo-200">SwiftCart</h1>
           <p>
-            ACME Industries Ltd.
-            <br />
-            Providing reliable tech since 1992
+            Your one-stop shop for all your fashion and lifestyle needs.<br />
+            products.<be />fast delivery and excellent support.
           </p>
         </aside>
         <nav>
@@ -166,9 +181,9 @@
         <nav>
           <form>
             <h6 class="footer-title">SUBSCRIBE TO OUR NEWSLETTER</h6>
-            <p>The latest news, articles, and resources, sent to your inbox weekly</p>
-            <fieldset class="w-80">
-              <div class="join">
+            <p class="mb-5">The latest news, articles, and resources, sent to your inbox weekly</p>
+            <fieldset>
+              <div class="flex flex-wrap gap-2">
                 <input
                   type="text"
                   placeholder="Enter Your Email"
@@ -181,23 +196,10 @@
         </nav>
       </footer>
       <footer
-        class="footer sm:footer-horizontal items-center bg-sky-950 text-base-content p-10 text-white border-t"
+        class="footer sm:footer-horizontal items-center text-base-content p-10 text-white border-t container mx-auto"
       >
         <aside class="grid-flow-col items-center">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            class="fill-current"
-          >
-            <path
-              d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"
-            ></path>
-          </svg>
-          <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+          <p>© 2026 - SwiftCart, inc. All right reserved.</p>
         </aside>
         <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
           <a>
