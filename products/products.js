@@ -1,8 +1,12 @@
+let allProducts = [];
+let cart = [];
+
 const loadProducts = async () => {
   const url = 'https://fakestoreapi.com/products';
   const res = await fetch(url);
   const products = await res.json();
-  displayProducts(products);
+  allProducts = products;
+  displayProducts(allProducts);
 };
 
 const productDetails = id => {
@@ -101,6 +105,9 @@ const displayProducts = products => {
   productsContainer.innerHTML = '';
   productsContainer.classList.add('grid', 'grid-cols-1', 'md:grid-cols-3', 'gap-5');
   products.forEach(p => {
+    const isInCart = cart.some(item => item.id === p.id);
+    console.log(isInCart);
+
     const productDiv = document.createElement('div');
     productDiv.innerHTML = `
             <div class="card bg-base-100 shadow-sm">
@@ -119,9 +126,12 @@ const displayProducts = products => {
                 <p class="font-bold">$${p.price}</p>
                 <div class="card-actions justify-between">
                   <button onClick="productDetails(${p.id})" class="btn btn-outline"><i class="fa-regular fa-eye"></i> Details</button>
-                  <button onClick="addToCart(${p.id})" class="btn btn-primary">
-                    <i class="fa-solid fa-cart-shopping"></i> Add
-                  </button>
+                  <button
+              onClick="addToCart(${p.id})"
+              class="btn ${isInCart ? 'btn-success text-black' : 'btn-primary'}">
+              <i class="fa-solid fa-cart-shopping"></i>
+              ${isInCart ? 'Added' : 'Add'}
+            </button>
                 </div>
               </div>
     `;
@@ -136,8 +146,6 @@ function openCart() {
   renderCart();
   document.getElementById('cartModal').showModal();
 }
-
-let cart = [];
 
 const addToCart = async productId => {
   const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -154,6 +162,7 @@ const addToCart = async productId => {
   localStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
   updateCartCount();
+  displayProducts(allProducts);
 };
 
 function renderCart() {
