@@ -213,7 +213,9 @@ function decreaseQty(index) {
 }
 
 function removeItem(index) {
-  const result = cart.splice(index);
+  const result = cart.splice(index, 1);
+  console.log(result);
+
   renderCart();
   updateCartCount();
 }
