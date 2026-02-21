@@ -151,7 +151,7 @@ const addToCart = async productId => {
     product.quantity = 1;
     cart.push(product);
   }
-
+  localStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
   updateCartCount();
 };
@@ -170,15 +170,23 @@ function renderCart() {
     return;
   }
   let total = 0;
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     total += item.price * item.quantity;
 
-    cartDiv.innerHTML += `
-      <div class="border-b py-2">
+    const div = document.createElement('div');
+    div.className = 'flex justify-between items-center border-b pb-2';
+    div.innerHTML = `
+      <div>
         <p class="font-semibold">${item.title}</p>
-        <p>$${item.price} x ${item.quantity}</p>
+        <p class="flex justify-between items-center font-semibold"><span>$${item.price}</span> <span>Quantity: ${item.quantity}</span></p>
+      </div>
+      <div class="flex gap-2 items-center">
+        <button class="btn btn-xs" onclick="decreaseQty(${index})">-</button>
+        <button class="btn btn-xs" onclick="increaseQty(${index})">+</button>
+        <button class="btn btn-error btn-xs" onclick="removeItem(${index})">Remove</button>
       </div>
     `;
+    cartDiv.appendChild(div);
   });
 
   cartDiv.innerHTML += `
@@ -186,6 +194,28 @@ function renderCart() {
       Total: $<span id="total-price">${total.toFixed(2)}</span>
     </h3>
   `;
+}
+
+function increaseQty(index) {
+  cart[index].quantity += 1;
+  renderCart();
+  updateCartCount();
+}
+
+function decreaseQty(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+  renderCart();
+  updateCartCount();
+}
+
+function removeItem(index) {
+  const result = cart.splice(index);
+  renderCart();
+  updateCartCount();
 }
 
 function updateCartCount() {
